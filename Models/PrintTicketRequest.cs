@@ -63,6 +63,12 @@ namespace MiProyecto.Models
 
         [JsonPropertyName("hash")]
         public string Hash { get; set; } = "";
+
+        [System.Text.Json.Serialization.JsonPropertyName("impresion")]
+        public ImpresionInfo? Impresion { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("facturas")]
+        public List<FacturaAfectada>? Facturas { get; set; }
     }
 
     public class TipopagoItem
@@ -305,6 +311,48 @@ namespace MiProyecto.Models
 
         [JsonPropertyName("pagable")]
         public string Pagable { get; set; } = "";
+    }
+
+        public class ImpresionInfo
+    {
+        [System.Text.Json.Serialization.JsonPropertyName("tipo_leyenda")]
+        public string? TipoLeyenda { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("comprobante_modificado")]
+        public string? ComprobanteModificado { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("cajero")]
+        public string? Cajero { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("idcajero")]
+        public string? IdCajero { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("nrocaja")]
+        public string? NroCaja { get; set; }
+    }
+
+    public class FacturaAfectada
+    {
+        [System.Text.Json.Serialization.JsonPropertyName("tipo")]
+        public string? Tipo { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("serie_numero")]
+        public string? SerieNumero { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("motivo")]
+        public MotivoAfectado? Motivo { get; set; }
+    }
+
+    public class MotivoAfectado
+    {
+        [System.Text.Json.Serialization.JsonPropertyName("codigo")]
+        public string? Codigo { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("descripcion")]
+        public string? Descripcion { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("sustento")]
+        public string? Sustento { get; set; }
     }
 
 }
